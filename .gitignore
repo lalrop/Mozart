@@ -1,0 +1,5 @@
+# Videos — demasiado pesados para GitHub/Cloudflare Pages
+*.mp4
+*.mov
+*.webm
+*.avi
