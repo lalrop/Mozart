@@ -309,10 +309,13 @@
         }
 
         #nav.scrolled {
-            background: rgba(0,0,0);
-            backdrop-filter: blur(12px);
+            background: rgba(0,0,0,0.95);
             padding: 1rem 2.5rem;
             border-bottom: 1px solid rgba(201,168,76,0.12);
+        }
+
+        @media (min-width: 769px) {
+            #nav.scrolled { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
         }
 
         .nav-logo img { height: 100px; object-fit: contain; }
@@ -1165,12 +1168,12 @@
                 align-items: center;
                 justify-content: center;
                 gap: 2rem;
-                z-index: 999;
+                z-index: 1001;
             }
 
             .nav-links.open { display: flex; }
             .nav-links a { font-size: 1rem; }
-            .hamburger { display: flex; }
+            .hamburger { display: flex; z-index: 1002; }
             .srv-grid, .test-grid { grid-template-columns: 1fr; }
             .form-row { grid-template-columns: 1fr; }
             .foot-grid { grid-template-columns: 1fr; gap: 2rem; }
