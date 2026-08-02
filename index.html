@@ -824,6 +824,56 @@
         .gal-item:hover .gal-overlay { background: rgba(0,0,0,0.4); }
         .gal-item:hover .gal-overlay svg { opacity: 1; transform: scale(1); }
 
+        /* Placa sobre la imagen principal de la galería */
+        .gal-badge {
+            position: absolute;
+            top: 1.5rem; left: 1.5rem;
+            z-index: 2;
+            background: rgba(10,10,10,0.82);
+            border: 1px solid rgba(201,168,76,0.25);
+            padding: 1rem 1.4rem;
+            pointer-events: none;
+        }
+
+        .gal-badge-t {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            color: var(--gold);
+            margin-bottom: 0.25rem;
+        }
+
+        .gal-badge-s { font-size: 0.7rem; color: var(--gray); letter-spacing: 0.08em; }
+
+        /* Tarjeta biográfica dentro de la galería */
+        .gal-bio {
+            background: var(--black-soft);
+            border: 1px solid rgba(201,168,76,0.25);
+            padding: 1.9rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 220px;
+        }
+
+        .gal-bio-name {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.15rem, 1.7vw, 1.45rem);
+            color: var(--gold);
+            line-height: 1.2;
+        }
+
+        .gal-bio-role {
+            font-size: 0.7rem;
+            color: var(--gray);
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            margin-top: 0.4rem;
+        }
+
+        .gal-bio-line { width: 44px; height: 1px; background: var(--gold); opacity: 0.6; margin: 1.1rem 0; }
+        .gal-bio p { font-size: 0.85rem; line-height: 1.65; color: rgba(255,255,255,0.68); margin-bottom: 0.75rem; }
+        .gal-bio p:last-child { margin-bottom: 0; }
+
         /* HERO VIDEO */
         .hero-video {
             position: absolute;
@@ -1509,16 +1559,22 @@
         </div>
         <div class="gal-grid">
             <div class="gal-item fu">
+                <div class="gal-badge">
+                    <div class="gal-badge-t">Flavio Carrión</div>
+                    <div class="gal-badge-s">Director artístico</div>
+                </div>
                 <a href="https://www.instagram.com/mozartchile/" target="_blank" rel="noopener noreferrer" class="gal-link">
-                    <img src="gallery/foto-1.jpg" alt="Mozart Chile — Galería 1">
+                    <img src="gallery/foto-1.jpg" alt="Flavio Carrión, director artístico de Mozart Chile">
                     <div class="gal-overlay"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
                 </a>
             </div>
-            <div class="gal-item fu d1">
-                <a href="https://www.instagram.com/mozartchile/" target="_blank" rel="noopener noreferrer" class="gal-link">
-                    <img src="gallery/foto-2.jpg" alt="Mozart Chile — Galería 2">
-                    <div class="gal-overlay"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
-                </a>
+            <div class="gal-item gal-bio fu d1">
+                <div class="gal-bio-name">Flavio Carrión V.</div>
+                <div class="gal-bio-role">Director artístico</div>
+                <div class="gal-bio-line"></div>
+                <p>Músico, director orquestal y coral con más de 15 años de trayectoria artística y de gestión, con participación en festivales de música nacionales e internacionales. Desde hace varios años es invitado como director a los Festivales Internacionales de Música Sacra para Orquesta y Coro de la Universidad Católica de Santa Fe, Argentina.</p>
+                <p>En paralelo a la dirección artística de Mozart SPA, es Director Ejecutivo de la Fundación Hijos de Bach y Administrador de la Corporación Educacional Escuela Especial Integra, donde lidera un proyecto de educación diferencial que integra las artes y el deporte como pilares del desarrollo integral de sus estudiantes.</p>
+                <p>Su trabajo combina la excelencia musical con la gestión cultural y educativa, impulsando el acceso a la formación artística y proyectos de alto impacto social.</p>
             </div>
             <div class="gal-item fu d2">
                 <a href="https://www.instagram.com/mozartchile/" target="_blank" rel="noopener noreferrer" class="gal-link">
