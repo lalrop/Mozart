@@ -110,7 +110,7 @@
           "@id": "https://mozartchile.cl/#website",
           "url": "https://mozartchile.cl",
           "name": "Mozart Chile",
-          "description": "Música clásica en vivo para eventos corporativos extraordinarios en Santiago de Chile",
+          "description": "Música en vivo para eventos corporativos extraordinarios en Santiago de Chile: clásica, cinematográfica, tango, jazz y más",
           "inLanguage": "es-CL"
         },
         {
@@ -169,6 +169,9 @@
             --black-mid: #1a1a1a;
             --white: #FFFFFF;
             --gray: #888888;
+            --text-soft: #B8B8B4;
+            --warm-white: #F5EFE6;
+            --gold-muted: #BFA66B;
             --t: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
@@ -210,10 +213,10 @@
         .section-title em { font-style: italic; color: var(--gold); }
 
         .section-sub {
-            font-size: 0.88rem;
-            font-weight: 300;
-            line-height: 1.85;
-            color: var(--gray);
+            font-size: 0.98rem;
+            font-weight: 400;
+            line-height: 1.8;
+            color: var(--text-soft);
             max-width: 580px;
         }
 
@@ -318,7 +321,7 @@
             #nav.scrolled { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
         }
 
-        .nav-logo img { height: 100px; object-fit: contain; }
+        .nav-logo img { height: 130px; object-fit: contain; }
 
         .nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
 
@@ -385,7 +388,7 @@
         .hero-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to bottom, rgba(10,10,10,0.25) 0%, rgba(10,10,10,0.55) 55%, rgba(10,10,10,0.9) 100%);
+            background: linear-gradient(to bottom, rgba(10,10,10,0.225) 0%, rgba(10,10,10,0.495) 55%, rgba(10,10,10,0.81) 100%);
         }
 
         .hero-content {
@@ -393,7 +396,7 @@
             z-index: 2;
             text-align: center;
             padding: 2rem;
-            max-width: 860px;
+            max-width: 1000px;
         }
 
         .hero-eyebrow {
@@ -427,19 +430,21 @@
             font-weight: 400;
             line-height: 1.1;
             color: var(--white);
-            margin-bottom: 1.5rem;
+            margin-bottom: 2.2rem;
+            text-shadow: 0 2px 28px rgba(0,0,0,0.45);
         }
 
         .hero-title em { font-style: italic; color: var(--gold); display: block; }
 
         .hero-sub {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(1rem, 2vw, 1.35rem);
-            font-weight: 300;
-            font-style: italic;
-            color: rgba(255,255,255,0.65);
-            margin-bottom: 3rem;
+            font-size: clamp(1.1rem, 2.1vw, 1.5rem);
+            font-weight: 500;
+            font-style: normal;
+            color: var(--warm-white);
+            margin-bottom: 3.6rem;
             line-height: 1.7;
+            text-shadow: 0 1px 14px rgba(0,0,0,0.55);
         }
 
         .hero-btns { display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; }
@@ -499,7 +504,7 @@
             margin-bottom: 0.85rem;
         }
 
-        .prop-text { font-size: 0.8rem; font-weight: 300; line-height: 1.85; color: var(--gray); }
+        .prop-text { font-size: 0.88rem; font-weight: 400; line-height: 1.8; color: var(--text-soft); }
 
         /* ABOUT */
         #about { padding: 8rem 0; background: var(--black); }
@@ -513,8 +518,10 @@
 
         .about-imgs { position: relative; }
 
-        .about-main { width: 100%; aspect-ratio: 4/5; overflow: hidden; }
-        .about-main img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .about-main { width: 100%; aspect-ratio: 4/5; overflow: hidden; position: relative; }
+        .about-main img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(0.78) brightness(1.07); }
+        /* Corrección de color sutil: neutraliza el tono naranja del fondo */
+        .about-main::after { content: ''; position: absolute; inset: 0; background: #6f8fb5; mix-blend-mode: soft-light; opacity: 0.3; pointer-events: none; }
 
         .about-accent {
             position: absolute;
@@ -540,7 +547,7 @@
         .about-stats {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+            gap: 2.4rem 2.5rem;
             margin-top: 3rem;
             padding-top: 3rem;
             border-top: 1px solid rgba(201,168,76,0.12);
@@ -548,10 +555,10 @@
 
         .stat-n {
             font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            font-weight: 500;
-            color: var(--gold);
-            line-height: 1;
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: var(--gold-muted);
+            line-height: 1.5;
         }
 
         .stat-l {
@@ -648,7 +655,7 @@
             margin-bottom: 0.85rem;
         }
 
-        .srv-desc { font-size: 0.8rem; font-weight: 300; line-height: 1.8; color: var(--gray); margin-bottom: 1.4rem; }
+        .srv-desc { font-size: 0.88rem; font-weight: 400; line-height: 1.8; color: var(--text-soft); margin-bottom: 1.4rem; }
 
         .srv-features { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
 
@@ -701,58 +708,46 @@
 
         .artist-imgs { position: relative; }
         .artist-main { width: 100%; aspect-ratio: 3/4; }
+        .artist-grid .section-sub { line-height: 1.7; }
 
-        .artist-badge {
-            position: absolute;
-            bottom: 3rem;
-            left: -2.5rem;
-            background: var(--black-soft);
-            border: 1px solid rgba(201,168,76,0.25);
-            padding: 1.4rem 1.8rem;
-            max-width: 250px;
-        }
-
-        .artist-badge-t {
+        .artist-name {
             font-family: 'Playfair Display', serif;
-            font-size: 1rem;
-            color: var(--gold);
-            margin-bottom: 0.25rem;
+            font-size: clamp(2.8rem, 5.6vw, 4.6rem);
+            font-weight: 400;
+            line-height: 1.05;
+            color: var(--warm-white);
+            margin-bottom: 0.9rem;
         }
 
-        .artist-badge-s { font-size: 0.7rem; color: var(--gray); letter-spacing: 0.08em; }
+        .artist-role {
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        .artist-caption { text-align: center; margin-top: 1.4rem; }
+        .artist-caption::before { content: ''; display: block; width: 44px; height: 1px; background: var(--gold); opacity: 0.7; margin: 0 auto 1rem; }
+        .artist-caption-t { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--warm-white); }
+        .artist-caption-s { font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-top: 0.35rem; }
 
         /* VELVET ORIENTAL */
-        #velvet-oriental { padding: 8rem 0; background: var(--black); }
-
-        .velvet-grid { direction: rtl; }
+        #velvet-oriental { padding: 8rem 0; background: linear-gradient(180deg, #120d08 0%, #0d0a07 100%); border-top: 1px solid rgba(201,168,76,0.08); border-bottom: 1px solid rgba(201,168,76,0.08); }
+        .velvet-grid { direction: rtl; grid-template-columns: 1.3fr 1fr; gap: 4.5rem; }
         .velvet-grid > * { direction: ltr; }
-
-        .velvet-logo-wrap { position: relative; display: flex; align-items: center; justify-content: center; }
-
-        .velvet-logo-box {
-            width: 100%;
-            aspect-ratio: 1/1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(201,168,76,0.04);
-            border: 1px solid rgba(201,168,76,0.15);
-            padding: 2rem;
-        }
-
-        .velvet-logo-img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
-
-        .velvet-badge {
-            left: auto;
-            right: -2.5rem;
-            padding: 1rem 1.2rem;
-            width: 38%;
-            max-width: 190px;
-            min-width: 90px;
+        .velvet-photo { width: 100%; height: auto; display: block; }
+        .velvet-caption { text-align: center; margin-top: 1.8rem; }
+        .velvet-caption img { width: 150px; height: auto; display: inline-block; }
+        .velvet-closing {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.35rem;
+            color: var(--gold-light);
+            letter-spacing: 0.04em;
+            margin-top: 2.2rem;
+            padding-top: 1.4rem;
+            border-top: 1px solid rgba(201,168,76,0.25);
+            display: inline-block;
         }
 
         /* REPERTOIRE */
@@ -771,8 +766,8 @@
             display: flex;
             align-items: center;
             gap: 1.25rem;
-            padding: 1.1rem 0;
-            border-bottom: 1px solid rgba(201,168,76,0.07);
+            padding: 1.6rem 0;
+            border-bottom: 1px solid rgba(201,168,76,0.12);
             transition: var(--t);
         }
 
@@ -780,8 +775,10 @@
 
         .rep-n { font-family: 'Playfair Display', serif; font-size: 0.72rem; color: var(--gold); opacity: 0.45; width: 22px; flex-shrink: 0; }
 
-        .rep-title { font-size: 0.88rem; font-weight: 500; color: var(--white); margin-bottom: 0.15rem; }
-        .rep-meta { font-size: 0.73rem; color: var(--gray); }
+        .rep-title { font-size: 1rem; font-weight: 600; color: var(--warm-white); margin-bottom: 0.3rem; }
+        .rep-meta { font-size: 0.82rem; color: var(--text-soft); }
+        .rep-close { margin-top: 2.4rem; font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; line-height: 1.6; color: var(--warm-white); margin-bottom: 1.8rem; }
+        .rep-close strong { color: var(--gold-light); font-weight: 400; }
         .rep-tag { margin-left: auto; font-size: 0.6rem; color: var(--gold); letter-spacing: 0.1em; opacity: 0.55; flex-shrink: 0; }
 
         .rep-note { margin-top: 1.8rem; font-size: 0.8rem; font-weight: 300; color: var(--gray); line-height: 1.75; }
@@ -789,7 +786,9 @@
 
         .rep-visual { position: relative; }
         .rep-img { width: 100%; aspect-ratio: 4/5; overflow: hidden; }
-        .rep-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .rep-img { position: relative; }
+        .rep-img img { width: 100%; height: 100%; object-fit: cover; display: block; filter: url(#wb-rep) saturate(0.9); }
+        /* Corrección sutil de iluminación y color (aclara y neutraliza el matiz rosado) */
 
         .music-bg {
             position: absolute;
@@ -803,79 +802,40 @@
             line-height: 1;
         }
 
-        /* GALLERY */
+        /* GALLERY / EQUIPO */
         #gallery { padding: 8rem 0; background: var(--black); }
 
-        .gal-grid {
-            display: grid;
-            grid-template-columns: repeat(12,1fr);
-            gap: 0.85rem;
+        @media (min-width: 1200px) {
+            #gallery .container { max-width: none; padding: 0 10vw; }
         }
 
-        .gal-item { overflow: hidden; position: relative; }
-        .gal-item:nth-child(1) { grid-column: span 7; grid-row: span 2; }
-        .gal-item:nth-child(2) { grid-column: span 5; }
-        .gal-item:nth-child(3) { grid-column: span 5; }
-        .gal-item:nth-child(4), .gal-item:nth-child(5), .gal-item:nth-child(6) { grid-column: span 4; }
+        .team-director {
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 4.5rem;
+            align-items: center;
+            margin-bottom: 4.5rem;
+        }
 
+        .team-photo { aspect-ratio: 1/1; overflow: hidden; }
+        .team-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .team-role { display: block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.9rem; }
+        .team-name { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 4vw, 3.4rem); font-weight: 400; line-height: 1.1; color: var(--warm-white); }
+        .team-bio .gal-bio-line { width: 55px; height: 1px; background: var(--gold); opacity: 0.7; margin: 1.6rem 0; }
+        .team-sub { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold-muted); margin: 1.8rem 0 0.7rem; }
+        .team-sub:first-of-type { margin-top: 0; }
+        .team-bio p { font-size: 1.02rem; line-height: 1.75; color: var(--text-soft); margin-bottom: 0.8rem; max-width: 640px; }
+
+        .gal-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+        .gal-item { overflow: hidden; position: relative; aspect-ratio: 4/5; }
         .gal-link { display: block; position: relative; height: 100%; }
-        .gal-item img { width: 100%; height: 100%; object-fit: cover; display: block; min-height: 220px; transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-        .gal-item:nth-child(1) img { min-height: 480px; }
+        .gal-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
         .gal-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0); display: flex; align-items: center; justify-content: center; transition: background 0.4s ease; }
         .gal-overlay svg { width: 28px; height: 28px; color: var(--white); opacity: 0; transform: scale(0.8); transition: var(--t); }
         .gal-item:hover img { transform: scale(1.06); }
         .gal-item:hover .gal-overlay { background: rgba(0,0,0,0.4); }
         .gal-item:hover .gal-overlay svg { opacity: 1; transform: scale(1); }
-
-        /* Placa sobre la imagen principal de la galería */
-        .gal-badge {
-            position: absolute;
-            top: 1.5rem; left: 1.5rem;
-            z-index: 2;
-            background: rgba(10,10,10,0.82);
-            border: 1px solid rgba(201,168,76,0.25);
-            padding: 1rem 1.4rem;
-            pointer-events: none;
-        }
-
-        .gal-badge-t {
-            font-family: 'Playfair Display', serif;
-            font-size: 1rem;
-            color: var(--gold);
-            margin-bottom: 0.25rem;
-        }
-
-        .gal-badge-s { font-size: 0.7rem; color: var(--gray); letter-spacing: 0.08em; }
-
-        /* Tarjeta biográfica dentro de la galería */
-        .gal-bio {
-            background: var(--black-soft);
-            border: 1px solid rgba(201,168,76,0.25);
-            padding: 1.9rem 2rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            min-height: 220px;
-        }
-
-        .gal-bio-name {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.15rem, 1.7vw, 1.45rem);
-            color: var(--gold);
-            line-height: 1.2;
-        }
-
-        .gal-bio-role {
-            font-size: 0.7rem;
-            color: var(--gray);
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            margin-top: 0.4rem;
-        }
-
-        .gal-bio-line { width: 44px; height: 1px; background: var(--gold); opacity: 0.6; margin: 1.1rem 0; }
-        .gal-bio p { font-size: 0.85rem; line-height: 1.65; color: rgba(255,255,255,0.68); margin-bottom: 0.75rem; }
-        .gal-bio p:last-child { margin-bottom: 0; }
 
         /* HERO VIDEO */
         .hero-video {
@@ -886,94 +846,27 @@
             object-fit: cover;
         }
 
-        /* VIDEOS */
+        /* VIDEOS (reels de Instagram) */
         #videos { padding: 8rem 0; background: var(--black-soft); }
         #repertorio-velvet { padding: 8rem 0; background: var(--black); }
 
-        .vid-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 1.2rem; }
-        .vid-side { display: grid; grid-template-rows: 1fr 1fr; gap: 1.2rem; }
-        .vid-sm { aspect-ratio: 16/9; }
-        .vid-main video, .vid-sm video, .vid-main img { width: 100%; height: 100%; object-fit: cover; display: block; background: var(--black); }
-
-        /* TESTIMONIALS */
-        #testimonials { padding: 8rem 0; background: var(--black); position: relative; overflow: hidden; }
-
-        #testimonials::before {
-            content: '"';
-            position: absolute;
-            top: -4rem; left: -1rem;
-            font-family: 'Playfair Display', serif;
-            font-size: 28rem;
-            color: rgba(201,168,76,0.025);
-            line-height: 1;
-            pointer-events: none;
-        }
-
-        .test-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.8rem; margin-bottom: 5rem; }
-
-        .test-card {
-            background: var(--black-soft);
-            border: 1px solid rgba(201,168,76,0.07);
-            padding: 2.5rem;
-            transition: var(--t);
-        }
-
-        .test-card:hover { border-color: rgba(201,168,76,0.22); }
-
-        .stars { display: flex; gap: 3px; margin-bottom: 1.4rem; }
-        .stars span { color: var(--gold); font-size: 0.85rem; }
-
-        .test-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1rem;
-            font-style: italic;
-            font-weight: 300;
-            line-height: 1.75;
-            color: rgba(255,255,255,0.78);
-            margin-bottom: 2rem;
-        }
-
-        .test-author { display: flex; align-items: center; gap: 1rem; }
-
-        .test-av { width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0; }
-
-        .test-name { font-size: 0.8rem; font-weight: 600; color: var(--white); }
-        .test-role { font-size: 0.7rem; color: var(--gold); margin-top: 0.15rem; }
-
-        .clients-strip {
-            border-top: 1px solid rgba(201,168,76,0.08);
-            padding-top: 4rem;
-            text-align: center;
-        }
-
-        .clients-label {
-            font-size: 0.62rem;
-            font-weight: 600;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: var(--gray);
-            margin-bottom: 2.5rem;
-        }
-
-        .logos-row { display: flex; align-items: center; justify-content: center; gap: 3.5rem; flex-wrap: wrap; }
-
-        .logo-ph {
-            width: 95px; height: 38px;
-            background: rgba(255,255,255,0.04);
-            border: 1px dashed rgba(201,168,76,0.12);
-            border-radius: 2px;
-        }
+        .reel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; align-items: start; }
+        .reel { border: 1px solid rgba(201,168,76,0.18); background: #fff; overflow: hidden; }
+        .reel iframe { display: block; width: 100%; aspect-ratio: 9 / 17; border: 0; background: #fff; }
 
         /* CONTACT */
-        #contact { padding: 8rem 0; background: var(--black-soft); }
+        #contact { padding: 6rem 0; background: var(--black-soft); }
+        #contact .container { max-width: 1340px; }
+        .cont-title em { display: block; }
 
         .cont-grid {
             display: grid;
-            grid-template-columns: 1fr 1.35fr;
-            gap: 6rem;
+            grid-template-columns: 1fr 1.15fr;
+            gap: 4.5rem;
+            align-items: start;
         }
 
-        .cont-details { margin-top: 3rem; display: flex; flex-direction: column; gap: 1.8rem; }
+        .cont-details { margin-top: 2.2rem; display: flex; flex-direction: column; gap: 1.8rem; }
 
         .cont-item { display: flex; gap: 1.2rem; align-items: flex-start; }
 
@@ -989,8 +882,8 @@
 
         .cont-icon svg { width: 15px; height: 15px; }
 
-        .cont-lbl { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.25rem; }
-        .cont-val { font-size: 0.85rem; color: rgba(255,255,255,0.65); line-height: 1.6; }
+        .cont-lbl { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.25rem; }
+        .cont-val { font-size: 0.98rem; color: var(--warm-white); line-height: 1.6; }
 
         .social-row { display: flex; gap: 0.75rem; margin-top: 2.5rem; }
 
@@ -1000,7 +893,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--gray);
+            color: var(--text-soft);
             text-decoration: none;
             transition: var(--t);
         }
@@ -1011,15 +904,15 @@
         .form-box {
             background: var(--black);
             border: 1px solid rgba(201,168,76,0.07);
-            padding: 3rem;
+            padding: 2.6rem;
         }
 
         .form-title {
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 400;
             color: var(--white);
-            margin-bottom: 2rem;
+            margin-bottom: 1.6rem;
         }
 
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
@@ -1028,22 +921,23 @@
 
         .fg label {
             display: block;
-            font-size: 0.64rem;
+            font-size: 0.74rem;
             font-weight: 600;
-            letter-spacing: 0.15em;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
-            color: var(--gray);
+            color: var(--text-soft);
             margin-bottom: 0.5rem;
         }
+        .fg label small { font-weight: 400; letter-spacing: 0.04em; text-transform: none; opacity: 0.8; }
 
         .fg input, .fg select, .fg textarea {
             width: 100%;
-            background: rgba(255,255,255,0.025);
-            border: 1px solid rgba(201,168,76,0.1);
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(201,168,76,0.28);
             color: var(--white);
-            padding: 0.82rem 1rem;
+            padding: 0.85rem 1rem;
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.83rem;
+            font-size: 0.95rem;
             outline: none;
             transition: var(--t);
             appearance: none;
@@ -1054,7 +948,14 @@
             background: rgba(201,168,76,0.025);
         }
 
+        .fg input::placeholder, .fg textarea::placeholder { color: rgba(255,255,255,0.42); }
         .fg textarea { resize: vertical; min-height: 110px; }
+        .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+        .form-submit:disabled { opacity: 0.6; cursor: wait; }
+        .form-msg { margin-top: 1rem; font-size: 0.9rem; line-height: 1.6; display: none; }
+        .form-msg.ok { display: block; color: #9fd5a8; }
+        .form-msg.err { display: block; color: #f0b3a8; }
+        .form-msg a { color: var(--gold-light); }
         .fg select option { background: var(--black-mid); color: var(--white); }
 
         .form-submit {
@@ -1079,33 +980,33 @@
         #footer {
             background: var(--black);
             border-top: 1px solid rgba(201,168,76,0.08);
-            padding: 5rem 0 2rem;
+            padding: 4rem 0 2rem;
         }
 
         .foot-grid {
             display: grid;
-            grid-template-columns: 1.6fr 1fr 1fr 1fr;
+            grid-template-columns: 1.5fr 1fr 1fr;
             gap: 4rem;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
 
-        .foot-brand img { height: 100px; object-fit: contain; margin-bottom: 1.4rem; }
-        .foot-brand p { font-size: 0.8rem; font-weight: 300; line-height: 1.82; color: var(--gray); max-width: 240px; }
+        .foot-brand img { height: 100px; object-fit: contain; margin-bottom: 1.2rem; }
+        .foot-brand p { font-size: 0.9rem; line-height: 1.75; color: var(--text-soft); max-width: 320px; }
 
         .foot-col-t {
-            font-size: 0.65rem;
+            font-size: 0.68rem;
             font-weight: 700;
             letter-spacing: 0.25em;
             text-transform: uppercase;
             color: var(--gold);
-            margin-bottom: 1.4rem;
+            margin-bottom: 1.2rem;
         }
 
-        .foot-links { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
+        .foot-links { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
 
         .foot-links a {
-            font-size: 0.8rem;
-            color: var(--gray);
+            font-size: 0.9rem;
+            color: var(--text-soft);
             text-decoration: none;
             transition: var(--t);
         }
@@ -1113,14 +1014,14 @@
         .foot-links a:hover { color: var(--gold); padding-left: 4px; }
 
         .foot-bottom {
-            border-top: 1px solid rgba(255,255,255,0.05);
-            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 1.8rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
 
-        .foot-copy { font-size: 0.7rem; color: rgba(255,255,255,0.2); }
+        .foot-copy { font-size: 0.78rem; color: rgba(255,255,255,0.5); }
 
         /* REP PLAY BUTTON */
         .rep-play {
@@ -1202,14 +1103,14 @@
         /* RESPONSIVE */
         @media (max-width: 1024px) {
             .about-grid, .artist-grid, .rep-grid, .cont-grid { grid-template-columns: 1fr; gap: 3rem; }
-            .srv-grid, .test-grid { grid-template-columns: 1fr 1fr; }
-            .foot-grid { grid-template-columns: 1fr 1fr; }
+            .srv-grid { grid-template-columns: 1fr 1fr; }
             .props-grid { grid-template-columns: 1fr; }
             .prop { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.08); }
             .about-accent { right: 0; }
-            .artist-badge { left: 0; }
-            .velvet-grid { direction: ltr; }
-            .velvet-badge { right: auto; left: 0; }
+            .velvet-grid { direction: ltr; grid-template-columns: 1fr; }
+            .team-director { grid-template-columns: 1fr; gap: 2.5rem; }
+            .gal-grid { grid-template-columns: repeat(2, 1fr); }
+            .foot-grid { grid-template-columns: 1fr 1fr; }
         }
 
         @media (max-width: 768px) {
@@ -1228,11 +1129,15 @@
             .nav-links.open { display: flex; }
             .nav-links a { font-size: 1rem; }
             .hamburger { display: flex; z-index: 1002; }
-            .srv-grid, .test-grid { grid-template-columns: 1fr; }
+            .srv-grid { grid-template-columns: 1fr; }
             .form-row { grid-template-columns: 1fr; }
             .foot-grid { grid-template-columns: 1fr; gap: 2rem; }
-            .vid-grid { grid-template-columns: 1fr; }
-            .gal-item:nth-child(n) { grid-column: span 12; }
+            .reel-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+            .nav-logo img { height: 100px; }
+            .hero-eyebrow { letter-spacing: 0.22em; padding: 0; font-size: 0.6rem; }
+            .hero-eyebrow::before, .hero-eyebrow::after { display: none; }
+            .fg input, .fg select, .fg textarea { font-size: 16px; }
+            #about, #services, #artist, #velvet-oriental, #repertoire, #gallery, #videos, #repertorio-velvet { padding: 5rem 0; }
             .foot-bottom { flex-direction: column; gap: 1rem; text-align: center; }
             .form-box { padding: 2rem 1.5rem; }
             .about-accent { display: none; }
@@ -1240,6 +1145,13 @@
     </style>
 </head>
 <body>
+
+<!-- Corrección de color sutil para la foto de repertorio (reduce dominante rosada, aclara levemente) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <filter id="wb-rep" color-interpolation-filters="sRGB">
+        <feColorMatrix type="matrix" values="1.00 0 0 0 0.01  0 1.17 0 0 0.02  0 0 1.09 0 0.015  0 0 0 1 0"/>
+    </filter>
+</svg>
 
 <!-- NAV -->
 <nav id="nav">
@@ -1265,7 +1177,7 @@
     </video>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-        <span class="hero-eyebrow">Música Clásica en Vivo · Chile</span>
+        <span class="hero-eyebrow">Música en Vivo para Eventos · Chile</span>
         <h1 class="hero-title">
             Eventos Corporativos
             <em>Extraordinarios</em>
@@ -1329,7 +1241,7 @@
                 </div>
             </div>
             <div class="fu d1">
-                <span class="section-label">Nuestra Historia</span>
+                <span class="section-label">Quiénes Somos</span>
                 <h2 class="section-title">Experiencias Musicales de <em>Alto Nivel</em> </h2>
                 <div class="gold-line"></div>
                 <p class="section-sub">Somos una productora musical especializada en experiencias en vivo para eventos corporativos, hoteles, lanzamientos, celebraciones y conciertos privados.</p>
@@ -1436,46 +1348,45 @@
             <h2 class="section-title">Nuestro <em>equipo</em></h2>
             <div class="gold-line center"></div>
         </div>
-        <div class="gal-grid">
-            <div class="gal-item fu">
-                <div class="gal-badge">
-                    <div class="gal-badge-t">Flavio Carrión</div>
-                    <div class="gal-badge-s">Director artístico</div>
-                </div>
-                <a href="https://www.instagram.com/mozartchile/" target="_blank" rel="noopener noreferrer" class="gal-link">
-                    <img src="gallery/foto-1.jpg" alt="Flavio Carrión, director artístico de Mozart Chile">
-                    <div class="gal-overlay"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
-                </a>
+        <div class="team-director fu">
+            <div class="team-photo">
+                <img src="gallery/foto-1.jpg" alt="Flavio Carrión, director artístico de Mozart Chile">
             </div>
-            <div class="gal-item gal-bio fu d1">
-                <div class="gal-bio-name">Flavio Carrión V.</div>
-                <div class="gal-bio-role">Director artístico</div>
+            <div class="team-bio">
+                <span class="team-role">Director artístico</span>
+                <h3 class="team-name">Flavio Carrión V.</h3>
                 <div class="gal-bio-line"></div>
-                <p>Músico, director orquestal y coral con más de 15 años de trayectoria artística y de gestión, con participación en festivales de música nacionales e internacionales. Desde hace varios años es invitado como director a los Festivales Internacionales de Música Sacra para Orquesta y Coro de la Universidad Católica de Santa Fe, Argentina.</p>
-                <p>En paralelo a la dirección artística de la Productora Mozart, es Director Ejecutivo de la Fundación Hijos de Bach y Administrador de la Corporación Educacional Escuela Especial Integra, donde lidera un proyecto de educación diferencial que integra las artes y el deporte como pilares del desarrollo integral de sus estudiantes.</p>
+                <h4 class="team-sub">Dirección artística</h4>
+                <p>Músico, director orquestal y coral con más de 15 años de trayectoria artística y de gestión, con participación en festivales de música nacionales e internacionales.</p>
+                <p>Desde hace varios años es invitado como director a los Festivales Internacionales de Música Sacra para Orquesta y Coro de la Universidad Católica de Santa Fe, Argentina.</p>
+                <h4 class="team-sub">Gestión cultural y educativa</h4>
+                <p>En paralelo a la dirección artística de la Productora Mozart, es Director Ejecutivo de la Fundación Hijos de Bach y Administrador de la Corporación Educacional Escuela Especial Integra.</p>
+                <p>Allí lidera un proyecto de educación diferencial que integra las artes y el deporte como pilares del desarrollo integral de sus estudiantes.</p>
                 <p>Su trabajo combina la excelencia musical con la gestión cultural y educativa, impulsando el acceso a la formación artística y proyectos de alto impacto social.</p>
             </div>
-            <div class="gal-item fu d2">
+        </div>
+        <div class="gal-grid">
+            <div class="gal-item fu ">
                 <a href="https://www.instagram.com/mozartchile/" target="_blank" rel="noopener noreferrer" class="gal-link">
-                    <img src="gallery/foto-3.jpg" alt="Mozart Chile — Galería 3">
-                    <div class="gal-overlay"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
-                </a>
-            </div>
-            <div class="gal-item fu">
-                <a href="https://www.instagram.com/mozartchile/" target="_blank" rel="noopener noreferrer" class="gal-link">
-                    <img src="gallery/foto-4.jpg" alt="Mozart Chile — Galería 4">
+                    <img src="gallery/foto-3.jpg" alt="Mozart Chile — Galería 3" loading="lazy">
                     <div class="gal-overlay"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
                 </a>
             </div>
             <div class="gal-item fu d1">
                 <a href="https://www.instagram.com/mozartchile/" target="_blank" rel="noopener noreferrer" class="gal-link">
-                    <img src="gallery/foto-5.jpg" alt="Mozart Chile — Galería 5">
+                    <img src="gallery/foto-4.jpg" alt="Mozart Chile — Galería 4" loading="lazy">
                     <div class="gal-overlay"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
                 </a>
             </div>
             <div class="gal-item fu d2">
                 <a href="https://www.instagram.com/mozartchile/" target="_blank" rel="noopener noreferrer" class="gal-link">
-                    <img src="gallery/foto-6.jpg" alt="Mozart Chile — Galería 6">
+                    <img src="gallery/foto-5.jpg" alt="Mozart Chile — Galería 5" loading="lazy">
+                    <div class="gal-overlay"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
+                </a>
+            </div>
+            <div class="gal-item fu d3">
+                <a href="https://www.instagram.com/mozartchile/" target="_blank" rel="noopener noreferrer" class="gal-link">
+                    <img src="gallery/foto-6.jpg" alt="Mozart Chile — Galería 6" loading="lazy">
                     <div class="gal-overlay"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
                 </a>
             </div>
@@ -1493,20 +1404,12 @@
             <span class="section-label">En Vivo</span>
             <h2 class="section-title">Mozart <em>en Acción</em></h2>
             <div class="gold-line center"></div>
-            <p class="section-sub">Conozca a nuestros músicos en acción. Cada presentación es preparada con precisión para crear momentos que perduran en la memoria de sus invitados.</p>
+            <p class="section-sub">Descubre nuestras producciones musicales en vivo, desde grandes interpretaciones sinfónicas hasta experiencias corporativas exclusivas</p>
         </div>
-        <div class="vid-grid">
-            <div class="vid-main fu">
-                <img src="ImagenVideos.png" alt="Mozart Chile — En Acción" style="width:100%;height:100%;object-fit:cover;display:block;">
-            </div>
-            <div class="vid-side">
-                <div class="vid-sm fu d1">
-                    <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/bVH3Fw3xVq4?rel=0&modestbranding=1" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" style="width:100%;height:100%;border:none;display:block;background:var(--black);"></iframe>
-                </div>
-                <div class="vid-sm fu d2">
-                    <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/RB86KxCvgu8?rel=0&modestbranding=1" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" style="width:100%;height:100%;border:none;display:block;background:var(--black);"></iframe>
-                </div>
-            </div>
+        <div class="reel-grid">
+            <div class="reel fu "><iframe loading="lazy" src="https://www.instagram.com/reel/DV1qMbZgQgP/embed/" title="Reel de Instagram de Mozart Chile" allowfullscreen scrolling="no"></iframe></div>
+            <div class="reel fu d1"><iframe loading="lazy" src="https://www.instagram.com/reel/DUeURv5AR6B/embed/" title="Reel de Instagram de Mozart Chile" allowfullscreen scrolling="no"></iframe></div>
+            <div class="reel fu d2"><iframe loading="lazy" src="https://www.instagram.com/reel/DfqD7rbhXWO/embed/" title="Reel de Instagram de Mozart Chile" allowfullscreen scrolling="no"></iframe></div>
         </div>
     </div>
 </section>
@@ -1516,8 +1419,9 @@
     <div class="container">
         <div class="artist-grid">
             <div class="fu">
-                <span class="section-label">Denis Kolobov</span>
-                <h2 class="section-title">Director Sinfónico y <em>Violinista Internacional</em></h2>
+                <span class="section-label">Asesor Artístico</span>
+                <h2 class="artist-name">Denis Kolobov</h2>
+                <p class="artist-role">Director Sinfónico y Violinista Internacional</p>
                 <div class="gold-line"></div>
                 <blockquote class="artist-quote">
                     "La música transforma un evento en una experiencia que permanece en la memoria."
@@ -1530,9 +1434,9 @@
             </div>
             <div class="artist-imgs fu d1">
                 <img src="violinista.jpg" alt="Denis Kolobov — Violinista y Director Sinfónico" class="artist-main" style="width:100%;height:100%;object-fit:scale-down;display:block;">
-                <div class="artist-badge">
-                    <div class="artist-badge-t">Asesor Artístico de Mozart</div>
-                    <div class="artist-badge-s">Director Sinfónico y Violinista Internacional</div>
+                <div class="artist-caption">
+                    <div class="artist-caption-t">Denis Kolobov</div>
+                    <div class="artist-caption-s">Asesor Artístico</div>
                 </div>
             </div>
         </div>
@@ -1543,10 +1447,10 @@
 <section id="velvet-oriental">
     <div class="container">
         <div class="artist-grid velvet-grid">
-            <div class="artist-imgs fu velvet-logo-wrap">
-                <img src="Velvet.jpg" alt="Velvet Oriental — Virtuosismo Europeo en Vivo" class="artist-main" style="width:100%;height:100%;object-fit:contain;display:block;">
-                <div class="artist-badge velvet-badge">
-                    <img src="LogoVelvetTransparente.png" alt="Velvet Oriental" style="width:100%;display:block;">
+            <div class="artist-imgs fu">
+                <img src="Velvet.jpg" alt="Velvet Oriental — Virtuosismo Europeo en Vivo" class="velvet-photo">
+                <div class="velvet-caption">
+                    <img src="LogoVelvetTransparente.png" alt="Velvet Oriental">
                 </div>
             </div>
             <div class="fu">
@@ -1556,17 +1460,10 @@
                 <blockquote class="artist-quote">
                     "Una experiencia musical inspirada en la tradición gitana y los grandes escenarios de Europa del Este y el Oriente del mundo."
                 </blockquote>
-                <p class="section-sub">Velvet Oriental es una propuesta artística exclusiva que fusiona virtuosismo instrumental, elegancia escénica y repertorio europeo de alto impacto.</p>
-                <br> 
-                <p class="section-sub">El proyecto reúne músicos especializados en tradición clásica y gitana europea, encabezados por el violinista Denis Kolobov, director sinfónico graduado con honores del Conservatorio Tchaikovsky de Moscú.</p>
+                <p class="section-sub">Velvet Oriental es una propuesta artística exclusiva que fusiona virtuosismo instrumental, elegancia escénica y repertorio europeo de alto impacto, encabezada por el violinista Denis Kolobov, director sinfónico graduado con honores del Conservatorio Tchaikovsky de Moscú.</p>
                 <br>
-                <p class="section-sub">Con el único cimbalón profesional de Chile como parte central de su identidad sonora, Velvet Oriental ofrece una experiencia musical única en el país, inspirada en las grandes agrupaciones de Europa del Este.</p>
-                <br>
-                <p class="section-sub"><strong>Velvet Oriental</strong> 
-                <br><strong>Virtuosismo Internacional</strong> 
-                <br> Sonoridades de Europa y Oriente
-
-                </p>                
+                <p class="section-sub">Con el único cimbalón profesional de Chile como centro de su identidad sonora, el conjunto reúne a músicos especializados en tradición clásica y gitana europea, y ofrece una experiencia única en el país, inspirada en las grandes agrupaciones de Europa del Este.</p>
+                <p class="velvet-closing">Sonoridades de Europa y Oriente</p>
             </div>
         </div>
     </div>
@@ -1579,17 +1476,11 @@
             <span class="section-label">Velvet Oriental</span>
             <h2 class="section-title">Repertorio <em>en Vivo</em></h2>
             <div class="gold-line center"></div>
-            <p class="section-sub"></p>
         </div>
-        <div class="vid-grid">
-            <div class="vid-main fu">
-                <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/ClhHAZbBHnA?rel=0&modestbranding=1" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" style="width:100%;height:100%;border:none;display:block;background:var(--black);"></iframe>
-            </div>
-            <div class="vid-side">
-                <div class="vid-sm fu d2">
-                    <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/7snlvx_opy0?rel=0&modestbranding=1" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" style="width:100%;height:100%;border:none;display:block;background:var(--black);"></iframe>
-                </div>
-            </div>
+        <div class="reel-grid">
+            <div class="reel fu "><iframe loading="lazy" src="https://www.instagram.com/reel/DYyNr-jB3np/embed/" title="Reel de Instagram de Mozart Chile" allowfullscreen scrolling="no"></iframe></div>
+            <div class="reel fu d1"><iframe loading="lazy" src="https://www.instagram.com/reel/DZAdkqXBwRl/embed/" title="Reel de Instagram de Mozart Chile" allowfullscreen scrolling="no"></iframe></div>
+            <div class="reel fu d2"><iframe loading="lazy" src="https://www.instagram.com/reel/DZwIIDVhtxm/embed/" title="Reel de Instagram de Mozart Chile" allowfullscreen scrolling="no"></iframe></div>
         </div>
     </div>
 </section>
@@ -1615,11 +1506,8 @@
                     <div class="rep-item"><span class="rep-n">06</span><div><div class="rep-title">Tango & Salón</div><div class="rep-meta">Gardel · Piazzolla · Por Una Cabeza</div></div></div>
 
                     <div class="rep-item"><span class="rep-n">07</span><div><div class="rep-title">Requiem & Coral Épico</div><div class="rep-meta">Mozart Requiem · Lacrimosa · Dies Irae</div></div></div>
-
-                    <div class="rep-item"><div><div class="rep-title">Experiencia Personalizada</div><div class="rep-meta">Curaduría musical diseñada exclusivamente para su evento</div></div><a href="#contact" class="rep-play">&#9654; Solicitar curaduría musical</a></div>
                 </div>
-                <p class="rep-title">Cada repertorio es <strong>cuidadosamente seleccionado</strong> según la identidad y atmósfera de su evento.</p>
-                <br>
+                <p class="rep-close">Cada repertorio es <strong>cuidadosamente seleccionado</strong> según la identidad y atmósfera de su evento.</p>
                 <a href="#contact" class="btn btn-outline">Diseñar Mi Experiencia</a>
             </div>
             <div class="rep-visual fu d1">
@@ -1635,48 +1523,13 @@
 
 
 
-<!-- TESTIMONIALS -->
-<section id="testimonials">
-    <div class="container">
-        <div class="section-hd fu">
-            <span class="section-label">Testimonios</span>
-            <h2 class="section-title">Lo Que Dicen <em>Nuestros Clientes</em></h2>
-            <div class="gold-line center"></div>
-        </div>
-        <div class="test-grid">
-            <div class="test-card fu">
-                <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-                <p class="test-text">"¡Espectáculo maravilloso! Realmente otro nivel"</p>
-                <div class="test-author">
-                    <div class="ph test-av"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" style="width:14px;height:14px;opacity:0.4;"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg></div>
-                    <div>
-                        <div class="test-name">Evelyn Fellay</div>
-                        <div class="test-role">Matrimonio en Casona de la Laguna  -  Chicureo </div>
-                    </div>
-                </div>
-            </div>
-            <div class="test-card fu d2">
-                <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-                <p class="test-text">"Increíble, estuve al borde de las lágrimas"</p>
-                <div class="test-author">
-                    <div class="ph test-av"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" style="width:14px;height:14px;opacity:0.4;"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg></div>
-                    <div>
-                        <div class="test-name">Karina Sehadeh</div>
-                        <div class="test-role">Lanzamiento de producto Mercedes Benz, Museo de la Moda </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- CONTACT -->
 <section id="contact">
     <div class="container">
         <div class="cont-grid">
             <div class="fu">
                 <span class="section-label">Contacto</span>
-                <h2 class="section-title">Demos Vida a Tu Evento <em>Extraordinario</em></h2>
+                <h2 class="section-title cont-title">Hagamos de Tu Evento <em>Una Experiencia Extraordinaria</em></h2>
                 <div class="gold-line"></div>
                 <p class="section-sub">Diseñamos experiencias musicales que transforman eventos en momentos inolvidables
                 <br>
@@ -1710,18 +1563,19 @@
             </div>
             <div class="form-box fu d1">
                 <h3 class="form-title">Cotiza Tu Evento</h3>
-                <form onsubmit="enviarWhatsApp(event)">
+                <form id="cotiza-form" onsubmit="enviarFormulario(event)" novalidate>
+                    <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
                     <div class="form-row">
-                        <div class="fg"><label>Nombre</label><input type="text" name="nombre" placeholder="Tu nombre"></div>
-                        <div class="fg"><label>Empresa</label><input type="text" name="empresa" placeholder="Nombre de la empresa"></div>
+                        <div class="fg"><label for="f-nombre">Nombre</label><input id="f-nombre" type="text" name="nombre" placeholder="Tu nombre" autocomplete="name" required></div>
+                        <div class="fg"><label for="f-empresa">Empresa <small>(opcional)</small></label><input id="f-empresa" type="text" name="empresa" placeholder="Nombre de la empresa" autocomplete="organization"></div>
                     </div>
                     <div class="form-row">
-                        <div class="fg"><label>Email</label><input type="email" name="email" placeholder="correo@empresa.cl"></div>
-                        <div class="fg"><label>Teléfono</label><input type="tel" name="telefono" placeholder="+56 9 XXXX XXXX"></div>
+                        <div class="fg"><label for="f-email">Email</label><input id="f-email" type="email" name="email" placeholder="correo@empresa.cl" autocomplete="email" inputmode="email" required></div>
+                        <div class="fg"><label for="f-tel">Teléfono</label><input id="f-tel" type="tel" name="telefono" placeholder="+56 9 XXXX XXXX" autocomplete="tel" inputmode="tel" required></div>
                     </div>
                     <div class="fg">
-                        <label>Tipo de Evento</label>
-                        <select name="tipo">
+                        <label for="f-tipo">Tipo de Evento</label>
+                        <select id="f-tipo" name="tipo" required>
                             <option value="">Selecciona una opción</option>
                             <option>Cena Corporativa</option>
                             <option>Lanzamiento de Producto</option>
@@ -1733,11 +1587,12 @@
                         </select>
                     </div>
                     <div class="form-row">
-                        <div class="fg"><label>Fecha del Evento</label><input type="date" name="fecha"></div>
-                        <div class="fg"><label>N° de Asistentes</label><input type="number" name="asistentes" placeholder="Aprox."></div>
+                        <div class="fg"><label for="f-fecha">Fecha del Evento</label><input id="f-fecha" type="date" name="fecha"></div>
+                        <div class="fg"><label for="f-asist">N° de Asistentes</label><input id="f-asist" type="number" name="asistentes" placeholder="Aprox." min="1" inputmode="numeric"></div>
                     </div>
-                    <div class="fg"><label>Cuéntanos más</label><textarea name="mensaje" placeholder="Describe tu evento, ubicación, preferencias musicales, etc."></textarea></div>
+                    <div class="fg"><label for="f-msg">Cuéntanos más</label><textarea id="f-msg" name="mensaje" placeholder="Describe tu evento, ubicación, preferencias musicales, etc."></textarea></div>
                     <button type="submit" class="form-submit">Solicitar Cotización</button>
+                    <p class="form-msg" id="form-msg" role="status" aria-live="polite"></p>
                 </form>
             </div>
         </div>
@@ -1750,43 +1605,29 @@
         <div class="foot-grid">
             <div class="foot-brand">
                 <img src="logo_negro.png" alt="Mozart Chile">
-                <p>Música clásica en vivo para eventos corporativos extraordinarios. Orquestas a medida en todo Chile.</p>
+                <p>Música en vivo para eventos extraordinarios: clásica, cinematográfica, tango, jazz y más. En Santiago y todo Chile.</p>
             </div>
             <div>
-                <div class="foot-col-t">Servicios</div>
-                <ul class="foot-links">
-                    <li><a href="#services">Gran Orquesta</a></li>
-                    <li><a href="#services">Cuarteto de Cuerdas</a></li>
-                    <li><a href="#services">Violinista Solista</a></li>
-                    <li><a href="#repertoire">Repertorio</a></li>
-                </ul>
-            </div>
-            <div>
-                <div class="foot-col-t">Empresa</div>
+                <div class="foot-col-t">Explorar</div>
                 <ul class="foot-links">
                     <li><a href="#about">Nosotros</a></li>
-                    <li><a href="#artist">El Artista</a></li>
+                    <li><a href="#services">Servicios</a></li>
                     <li><a href="#gallery">Galería</a></li>
-                    <li><a href="#testimonials">Testimonios</a></li>
+                    <li><a href="#velvet-oriental">Velvet Oriental</a></li>
+                    <li><a href="#repertoire">Repertorio</a></li>
                 </ul>
             </div>
             <div>
                 <div class="foot-col-t">Contacto</div>
                 <ul class="foot-links">
-                    <li><a href="#">contacto@mozartchile.cl</a></li>
+                    <li><a href="mailto:contacto@mozartchile.cl">contacto@mozartchile.cl</a></li>
                     <li><a href="https://wa.me/56936572147" target="_blank" rel="noopener noreferrer">+56 9 3657 2147</a></li>
-                    <li><a href="#">Santiago, Chile</a></li>
                     <li><a href="https://www.instagram.com/mozartchile/" target="_blank" rel="noopener noreferrer">@mozartchile</a></li>
                 </ul>
             </div>
         </div>
         <div class="foot-bottom">
             <p class="foot-copy">© 2026 Mozart Producciones · Todos los derechos reservados</p>
-            <div class="social-row">
-                <a href="https://www.instagram.com/mozartchile/" target="_blank" rel="noopener noreferrer" class="soc-btn">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                </a>
-            </div>
         </div>
     </div>
 </footer>
@@ -1826,30 +1667,61 @@
 
     document.querySelectorAll('.fu').forEach(el => observer.observe(el));
 
-    function enviarWhatsApp(e) {
+    // Envío del formulario por correo (FormSubmit) a arturodiban@mozartchile.cl
+    async function enviarFormulario(e) {
         e.preventDefault();
         const f = e.target;
-        const nombre     = f.querySelector('[name="nombre"]').value.trim();
-        const empresa    = f.querySelector('[name="empresa"]').value.trim();
-        const email      = f.querySelector('[name="email"]').value.trim();
-        const telefono   = f.querySelector('[name="telefono"]').value.trim();
-        const tipo       = f.querySelector('[name="tipo"]').value;
-        const fecha      = f.querySelector('[name="fecha"]').value;
-        const asistentes = f.querySelector('[name="asistentes"]').value.trim();
-        const mensaje    = f.querySelector('[name="mensaje"]').value.trim();
+        const msg = document.getElementById('form-msg');
+        const btn = f.querySelector('.form-submit');
+        const v = n => (f.querySelector('[name="' + n + '"]').value || '').trim();
 
-        const texto =
-            `*Nueva Cotización — Mozart Chile*\n\n` +
-            `*Nombre:* ${nombre || '—'}\n` +
-            `*Empresa:* ${empresa || '—'}\n` +
-            `*Email:* ${email || '—'}\n` +
-            `*Teléfono:* ${telefono || '—'}\n` +
-            `*Tipo de evento:* ${tipo || '—'}\n` +
-            `*Fecha:* ${fecha || '—'}\n` +
-            `*N° de asistentes:* ${asistentes || '—'}\n` +
-            `*Mensaje:* ${mensaje || '—'}`;
+        if (v('_honey')) return; // anti-spam
+        msg.className = 'form-msg';
+        if (!f.checkValidity()) { f.reportValidity(); return; }
 
-        window.open('https://wa.me/56936572147?text=' + encodeURIComponent(texto), '_blank');
+        const waTexto =
+            'Hola, quiero cotizar un evento.\n' +
+            'Nombre: ' + v('nombre') + '\nEmpresa: ' + (v('empresa') || '—') + '\nEmail: ' + v('email') +
+            '\nTeléfono: ' + v('telefono') + '\nTipo de evento: ' + v('tipo') + '\nFecha: ' + (v('fecha') || '—') +
+            '\nAsistentes: ' + (v('asistentes') || '—') + '\nMensaje: ' + (v('mensaje') || '—');
+        const waLink = 'https://wa.me/56936572147?text=' + encodeURIComponent(waTexto);
+
+        const data = {
+            'Nombre': v('nombre'),
+            'Empresa': v('empresa') || '—',
+            'Email': v('email'),
+            'Teléfono': v('telefono'),
+            'Tipo de evento': v('tipo'),
+            'Fecha del evento': v('fecha') || '—',
+            'N° de asistentes': v('asistentes') || '—',
+            'Mensaje': v('mensaje') || '—',
+            '_replyto': v('email'),
+            '_subject': 'Nueva cotización — Mozart Chile',
+            '_template': 'table',
+            '_captcha': 'false'
+        };
+
+        btn.disabled = true;
+        const label = btn.textContent;
+        btn.textContent = 'Enviando…';
+        try {
+            const r = await fetch('https://formsubmit.co/ajax/arturodiban@mozartchile.cl', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            const j = await r.json().catch(() => ({}));
+            if (!r.ok || j.success === false || j.success === 'false') throw new Error('envio');
+            f.reset();
+            msg.className = 'form-msg ok';
+            msg.textContent = '¡Gracias! Recibimos tu solicitud y te responderemos a la brevedad.';
+        } catch (err) {
+            msg.className = 'form-msg err';
+            msg.innerHTML = 'No pudimos enviar el formulario. Inténtalo nuevamente o <a href="' + waLink + '" target="_blank" rel="noopener noreferrer">escríbenos por WhatsApp</a>.';
+        } finally {
+            btn.disabled = false;
+            btn.textContent = label;
+        }
     }
 
     (function () {
