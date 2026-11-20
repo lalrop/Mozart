@@ -851,8 +851,13 @@
         #repertorio-velvet { padding: 8rem 0; background: var(--black); }
 
         .reel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; align-items: start; }
-        .reel { border: 1px solid rgba(201,168,76,0.18); background: #fff; overflow: hidden; }
-        .reel iframe { display: block; width: 100%; aspect-ratio: 9 / 17; border: 0; background: #fff; }
+        .reel-frame { aspect-ratio: 4 / 5; display: flex; align-items: center; background: #000; border: 1px solid rgba(201,168,76,0.18); overflow: hidden; }
+        /* Se recorta la cabecera (54 px) y el pie blancos del embed de Instagram: solo se ve el video */
+        .reel-media { position: relative; width: 100%; aspect-ratio: 4 / 5; overflow: hidden; }
+        .reel-media.sq { aspect-ratio: 1 / 1; }
+        .reel-media iframe { position: absolute; top: -54px; left: -1px; width: calc(100% + 2px); height: calc(100% + 54px + 300px); border: 0; background: #000; color-scheme: dark; }
+        .reel-link { display: block; text-align: center; margin-top: 0.9rem; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); text-decoration: none; transition: var(--t); }
+        .reel-link:hover { color: var(--gold-light); }
 
         /* CONTACT */
         #contact { padding: 6rem 0; background: var(--black-soft); }
@@ -1407,9 +1412,9 @@
             <p class="section-sub">Descubre nuestras producciones musicales en vivo, desde grandes interpretaciones sinfónicas hasta experiencias corporativas exclusivas</p>
         </div>
         <div class="reel-grid">
-            <div class="reel fu "><iframe loading="lazy" src="https://www.instagram.com/reel/DV1qMbZgQgP/embed/" title="Reel de Instagram de Mozart Chile" allowfullscreen scrolling="no"></iframe></div>
-            <div class="reel fu d1"><iframe loading="lazy" src="https://www.instagram.com/reel/DUeURv5AR6B/embed/" title="Reel de Instagram de Mozart Chile" allowfullscreen scrolling="no"></iframe></div>
-            <div class="reel fu d2"><iframe loading="lazy" src="https://www.instagram.com/reel/DfqD7rbhXWO/embed/" title="Reel de Instagram de Mozart Chile" allowfullscreen scrolling="no"></iframe></div>
+            <div class="reel fu"><div class="reel-frame"><div class="reel-media"><iframe loading="lazy" src="https://www.instagram.com/reel/DV1qMbZgQgP/embed/" title="Reel de Instagram de Mozart Chile" allowfullscreen scrolling="no"></iframe></div></div><a class="reel-link" href="https://www.instagram.com/reel/DV1qMbZgQgP/" target="_blank" rel="noopener noreferrer">Ver en Instagram</a></div>
+            <div class="reel fu d1"><div class="reel-frame"><div class="reel-media sq"><iframe loading="lazy" src="https://www.instagram.com/reel/DUeURv5AR6B/embed/" title="Reel de Instagram de Mozart Chile" allowfullscreen scrolling="no"></iframe></div></div><a class="reel-link" href="https://www.instagram.com/reel/DUeURv5AR6B/" target="_blank" rel="noopener noreferrer">Ver en Instagram</a></div>
+            <div class="reel fu d2"><div class="reel-frame"><div class="reel-media"><iframe loading="lazy" src="https://www.instagram.com/reel/DfqD7rbhXWO/embed/" title="Reel de Instagram de Mozart Chile" allowfullscreen scrolling="no"></iframe></div></div><a class="reel-link" href="https://www.instagram.com/reel/DfqD7rbhXWO/" target="_blank" rel="noopener noreferrer">Ver en Instagram</a></div>
         </div>
     </div>
 </section>
@@ -1478,9 +1483,9 @@
             <div class="gold-line center"></div>
         </div>
         <div class="reel-grid">
-            <div class="reel fu "><iframe loading="lazy" src="https://www.instagram.com/reel/DYyNr-jB3np/embed/" title="Reel de Instagram de Mozart Chile" allowfullscreen scrolling="no"></iframe></div>
-            <div class="reel fu d1"><iframe loading="lazy" src="https://www.instagram.com/reel/DZAdkqXBwRl/embed/" title="Reel de Instagram de Mozart Chile" allowfullscreen scrolling="no"></iframe></div>
-            <div class="reel fu d2"><iframe loading="lazy" src="https://www.instagram.com/reel/DZwIIDVhtxm/embed/" title="Reel de Instagram de Mozart Chile" allowfullscreen scrolling="no"></iframe></div>
+            <div class="reel fu"><div class="reel-frame"><div class="reel-media"><iframe loading="lazy" src="https://www.instagram.com/reel/DYyNr-jB3np/embed/" title="Reel de Instagram de Mozart Chile" allowfullscreen scrolling="no"></iframe></div></div><a class="reel-link" href="https://www.instagram.com/reel/DYyNr-jB3np/" target="_blank" rel="noopener noreferrer">Ver en Instagram</a></div>
+            <div class="reel fu d1"><div class="reel-frame"><div class="reel-media"><iframe loading="lazy" src="https://www.instagram.com/reel/DZAdkqXBwRl/embed/" title="Reel de Instagram de Mozart Chile" allowfullscreen scrolling="no"></iframe></div></div><a class="reel-link" href="https://www.instagram.com/reel/DZAdkqXBwRl/" target="_blank" rel="noopener noreferrer">Ver en Instagram</a></div>
+            <div class="reel fu d2"><div class="reel-frame"><div class="reel-media"><iframe loading="lazy" src="https://www.instagram.com/reel/DZwIIDVhtxm/embed/" title="Reel de Instagram de Mozart Chile" allowfullscreen scrolling="no"></iframe></div></div><a class="reel-link" href="https://www.instagram.com/reel/DZwIIDVhtxm/" target="_blank" rel="noopener noreferrer">Ver en Instagram</a></div>
         </div>
     </div>
 </section>
