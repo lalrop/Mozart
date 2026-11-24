@@ -964,11 +964,8 @@
 
         .fg input::placeholder, .fg textarea::placeholder { color: rgba(255,255,255,0.42); }
         .fg textarea { resize: vertical; min-height: 110px; }
-        .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
-        .form-submit:disabled { opacity: 0.6; cursor: wait; }
         .form-msg { margin-top: 1rem; font-size: 0.9rem; line-height: 1.6; display: none; }
         .form-msg.ok { display: block; color: #9fd5a8; }
-        .form-msg.err { display: block; color: #f0b3a8; }
         .form-msg a { color: var(--gold-light); }
         .fg select option { background: var(--black-mid); color: var(--white); }
 
@@ -1600,7 +1597,6 @@
             <div class="form-box fu d1">
                 <h3 class="form-title">Cotiza Tu Evento</h3>
                 <form id="cotiza-form" onsubmit="enviarFormulario(event)" novalidate>
-                    <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
                     <div class="form-row">
                         <div class="fg"><label for="f-nombre">Nombre</label><input id="f-nombre" type="text" name="nombre" placeholder="Tu nombre" autocomplete="name" required></div>
                         <div class="fg"><label for="f-empresa">Empresa <small>(opcional)</small></label><input id="f-empresa" type="text" name="empresa" placeholder="Nombre de la empresa" autocomplete="organization"></div>
@@ -1703,61 +1699,33 @@
 
     document.querySelectorAll('.fu').forEach(el => observer.observe(el));
 
-    // Envío del formulario por correo (FormSubmit) a arturodiban@mozartchile.cl
-    async function enviarFormulario(e) {
+    // Envío del formulario por WhatsApp: abre un mensaje ya redactado hacia +56 9 3657 2147
+    function enviarFormulario(e) {
         e.preventDefault();
         const f = e.target;
         const msg = document.getElementById('form-msg');
-        const btn = f.querySelector('.form-submit');
         const v = n => (f.querySelector('[name="' + n + '"]').value || '').trim();
 
-        if (v('_honey')) return; // anti-spam
         msg.className = 'form-msg';
         if (!f.checkValidity()) { f.reportValidity(); return; }
 
-        const waTexto =
-            'Hola, quiero cotizar un evento.\n' +
-            'Nombre: ' + v('nombre') + '\nEmpresa: ' + (v('empresa') || '—') + '\nEmail: ' + v('email') +
-            '\nTeléfono: ' + v('telefono') + '\nTipo de evento: ' + v('tipo') + '\nFecha: ' + (v('fecha') || '—') +
-            '\nAsistentes: ' + (v('asistentes') || '—') + '\nMensaje: ' + (v('mensaje') || '—');
-        const waLink = 'https://wa.me/56936572147?text=' + encodeURIComponent(waTexto);
+        const fecha = v('fecha') ? v('fecha').split('-').reverse().join('-') : '—';
+        const texto =
+            '*Nueva solicitud de cotización — Mozart Chile*\n\n' +
+            '*Nombre:* ' + v('nombre') + '\n' +
+            '*Empresa:* ' + (v('empresa') || '—') + '\n' +
+            '*Email:* ' + v('email') + '\n' +
+            '*Teléfono:* ' + v('telefono') + '\n' +
+            '*Tipo de evento:* ' + v('tipo') + '\n' +
+            '*Fecha del evento:* ' + fecha + '\n' +
+            '*N° de asistentes:* ' + (v('asistentes') || '—') + '\n' +
+            '*Mensaje:* ' + (v('mensaje') || '—');
+        const url = 'https://wa.me/56936572147?text=' + encodeURIComponent(texto);
 
-        const data = {
-            'Nombre': v('nombre'),
-            'Empresa': v('empresa') || '—',
-            'Email': v('email'),
-            'Teléfono': v('telefono'),
-            'Tipo de evento': v('tipo'),
-            'Fecha del evento': v('fecha') || '—',
-            'N° de asistentes': v('asistentes') || '—',
-            'Mensaje': v('mensaje') || '—',
-            '_replyto': v('email'),
-            '_subject': 'Nueva cotización — Mozart Chile',
-            '_template': 'table',
-            '_captcha': 'false'
-        };
-
-        btn.disabled = true;
-        const label = btn.textContent;
-        btn.textContent = 'Enviando…';
-        try {
-            const r = await fetch('https://formsubmit.co/ajax/arturodiban@mozartchile.cl', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                body: JSON.stringify(data)
-            });
-            const j = await r.json().catch(() => ({}));
-            if (!r.ok || j.success === false || j.success === 'false') throw new Error('envio');
-            f.reset();
-            msg.className = 'form-msg ok';
-            msg.textContent = '¡Gracias! Recibimos tu solicitud y te responderemos a la brevedad.';
-        } catch (err) {
-            msg.className = 'form-msg err';
-            msg.innerHTML = 'No pudimos enviar el formulario. Inténtalo nuevamente o <a href="' + waLink + '" target="_blank" rel="noopener noreferrer">escríbenos por WhatsApp</a>.';
-        } finally {
-            btn.disabled = false;
-            btn.textContent = label;
-        }
+        const w = window.open(url, '_blank');
+        if (w) { w.opener = null; } else { window.location.href = url; } // si el navegador bloquea la ventana nueva
+        msg.className = 'form-msg ok';
+        msg.innerHTML = 'Se abrió WhatsApp con tu solicitud. <strong>Presiona «Enviar» en WhatsApp</strong> para completar el envío.';
     }
 
     (function () {
