@@ -850,6 +850,15 @@
         #videos { padding: 8rem 0; background: var(--black-soft); }
         #repertorio-velvet { padding: 8rem 0; background: var(--black); }
 
+        /* Mozart en Acción: YouTube Shorts + leyenda */
+        .yt-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; align-items: start; }
+        .yt-frame { aspect-ratio: 9 / 16; background: #000; border: 1px solid rgba(201,168,76,0.18); overflow: hidden; }
+        .yt-frame iframe { display: block; width: 100%; height: 100%; border: 0; }
+        .yt-cap { margin-top: 1.3rem; }
+        .yt-tag { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+        .yt-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 400; color: var(--warm-white); margin-bottom: 0.5rem; }
+        .yt-desc { font-size: 0.9rem; line-height: 1.65; color: var(--gray); }
+
         .reel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; align-items: start; }
         .reel-frame { aspect-ratio: 4 / 5; display: flex; align-items: center; background: #000; border: 1px solid rgba(201,168,76,0.18); overflow: hidden; }
         /* Se recorta la cabecera (54 px) y el pie blancos del embed de Instagram: solo se ve el video */
@@ -1138,6 +1147,7 @@
             .form-row { grid-template-columns: 1fr; }
             .foot-grid { grid-template-columns: 1fr; gap: 2rem; }
             .reel-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+            .yt-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
             .nav-logo img { height: 100px; }
             .hero-eyebrow { letter-spacing: 0.22em; padding: 0; font-size: 0.6rem; }
             .hero-eyebrow::before, .hero-eyebrow::after { display: none; }
@@ -1411,10 +1421,31 @@
             <div class="gold-line center"></div>
             <p class="section-sub">Descubre nuestras producciones musicales en vivo, desde grandes interpretaciones sinfónicas hasta experiencias corporativas exclusivas</p>
         </div>
-        <div class="reel-grid">
-            <div class="reel fu"><div class="reel-frame"><div class="reel-media"><iframe loading="lazy" src="https://www.instagram.com/reel/DV1qMbZgQgP/embed/" title="Reel de Instagram de Mozart Chile" allowfullscreen scrolling="no"></iframe></div></div><a class="reel-link" href="https://www.instagram.com/reel/DV1qMbZgQgP/" target="_blank" rel="noopener noreferrer">Ver en Instagram</a></div>
-            <div class="reel fu d1"><div class="reel-frame"><div class="reel-media sq"><iframe loading="lazy" src="https://www.instagram.com/reel/DUeURv5AR6B/embed/" title="Reel de Instagram de Mozart Chile" allowfullscreen scrolling="no"></iframe></div></div><a class="reel-link" href="https://www.instagram.com/reel/DUeURv5AR6B/" target="_blank" rel="noopener noreferrer">Ver en Instagram</a></div>
-            <div class="reel fu d2"><div class="reel-frame"><div class="reel-media"><iframe loading="lazy" src="https://www.instagram.com/reel/DfqD7rbhXWO/embed/" title="Reel de Instagram de Mozart Chile" allowfullscreen scrolling="no"></iframe></div></div><a class="reel-link" href="https://www.instagram.com/reel/DfqD7rbhXWO/" target="_blank" rel="noopener noreferrer">Ver en Instagram</a></div>
+        <div class="yt-grid">
+            <div class="yt-card fu">
+                <div class="yt-frame"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/eeWJh9lfFeI?rel=0&modestbranding=1&playsinline=1" title="Lanzamiento Clase S" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+                <div class="yt-cap">
+                    <div class="yt-tag">MERCEDES-BENZ</div>
+                    <h3 class="yt-title">Lanzamiento Clase S</h3>
+                    <p class="yt-desc">Intervención musical sincronizada con la presentación del vehículo</p>
+                </div>
+            </div>
+            <div class="yt-card fu d1">
+                <div class="yt-frame"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/Z9n1E-5Fa2E?rel=0&modestbranding=1&playsinline=1" title="Lacrimosa - Mozart" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+                <div class="yt-cap">
+                    <div class="yt-tag">CONCIERTO SINFÓNICO-CORAL</div>
+                    <h3 class="yt-title">Lacrimosa - Mozart</h3>
+                    <p class="yt-desc">Interpretación en vivo junto a coro y orquesta</p>
+                </div>
+            </div>
+            <div class="yt-card fu d2">
+                <div class="yt-frame"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/FeRK4NEh11k?rel=0&modestbranding=1&playsinline=1" title="Mozart en Acción" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+                <div class="yt-cap">
+                    <div class="yt-tag">HALL OF FAME</div>
+                    <h3 class="yt-title">Experiencia Musical Premium</h3>
+                    <p class="yt-desc">Música en vivo para una exclusiva exhibición automotriz</p>
+                </div>
+            </div>
         </div>
     </div>
 </section>
